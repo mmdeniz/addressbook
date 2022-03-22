@@ -31,7 +31,7 @@ pipeline {
         }
         stage ('Archive Artifacts') {
             steps {
-                archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
+                archiveArtifacts artifacts: '*.war', followSymlinks: false
             }
         }
         stage ('Code Scan Report') {
