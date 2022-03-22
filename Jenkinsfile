@@ -1,6 +1,9 @@
 pipeline {
     agent any
     tools {
+        //
+        // this requires Maven integration plugin
+        //
         maven 'maven-3.8.5'
     }
     stages{
@@ -36,6 +39,9 @@ pipeline {
         }
         stage ('Code Scan Report') {
             steps {
+                //
+                // This requires HTML Publisher plugin
+                //
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site', reportFiles: 'pmd.html', reportName: 'PMD Report', reportTitles: ''])
             }
         }
