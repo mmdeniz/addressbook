@@ -6,7 +6,6 @@ pipeline {
     stages{
         stage ('Get the source code') {
             steps {
-#                git branch: 'master', credentialsId: 'kumaraqua-github', url: 'https://github.com/kumaraqua/addressbook.git'
                 git 'https://github.com/mmdeniz/addressbook.git'
             }
         }
