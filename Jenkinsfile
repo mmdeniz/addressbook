@@ -79,7 +79,7 @@ pipeline {
             steps {
                 //
                 // 
-		//    sh 'eche "push"'
+		//    
                  sh "docker push mmdeniz/addressbook:${BUILD_NUMBER}"
             }
         }
@@ -87,7 +87,7 @@ pipeline {
             steps {
                 //
                 // 
-                sh 'echo "Pull"'
+                sh "docker run --name AB${BUILD_NUMBER} -d  -p 8888:8080 mmdeniz/addressbook:${BUILD_NUMBER}"
             }
         }
     }
