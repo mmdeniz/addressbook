@@ -1,4 +1,4 @@
-FROM tomcat:8.0-alpine
+FROM tomcat:jre8-openjdk-buster
 
 RUN apt-get update
 
