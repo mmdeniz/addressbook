@@ -69,8 +69,8 @@ pipeline {
             steps {
                 //
                 // 
-		    sh 'eche "push"'
-                // sh 'docker push mmdeniz/addressbook:1.0'
+		//    sh 'eche "push"'
+                 sh 'docker push mmdeniz/addressbook:1.0'
             }
         }
         stage ('Pull the Docker image from the Docker Hub') {
