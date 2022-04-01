@@ -1,4 +1,4 @@
-FROM tomcat:latest
+FROM tomcat:jre8-openjdk-slim
 
 RUN apt-get update
 
