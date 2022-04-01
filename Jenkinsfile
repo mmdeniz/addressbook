@@ -69,6 +69,7 @@ pipeline {
             steps {
                 //
                 // 
+		    sh 'eche "push"'
                 // sh 'docker push mmdeniz/addressbook:1.0'
             }
         }
