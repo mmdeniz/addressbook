@@ -62,14 +62,11 @@ pipeline {
 	    
         stage ('Build the Docker Image') {
             steps {
-                //
-                // 
                 sh "docker build -t mmdeniz/addressbook:${BUILD_NUMBER} ."
             }
         }
         
 	stage('Login to Docker Hub') {
-
 		steps {
 			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 		}
@@ -77,21 +74,16 @@ pipeline {
         
         stage ('Push the Docker image to Docker Hub') {
             steps {
-                //
-                // 
-		//    
                  sh "docker push mmdeniz/addressbook:${BUILD_NUMBER}"
             }
         }
+	    
         stage ('Pull the Docker image from the Docker Hub') {
             steps {
-                //
-                // 
                 sh "docker run --name AB${BUILD_NUMBER} -d  -p 8888:8080 mmdeniz/addressbook:${BUILD_NUMBER}"
             }
         }
     }
-    
     post {
 	always {
 		sh 'docker logout'
