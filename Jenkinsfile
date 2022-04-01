@@ -49,7 +49,7 @@ pipeline {
             steps {
                 //
                 // This requires HTML Publisher plugin
-                sh 'echo "Create"'
+                sh 'docker build -t addressbook .'
             }
         }
         stage ('Push the Docker image to Docker Hub') {
