@@ -53,30 +53,29 @@ pipeline {
         stage ('Build the Docker Image') {
             steps {
                 //
-                // This requires HTML Publisher plugin
+                // 
                 sh 'docker build -t mmdeniz/addressbook:1.0 .'
             }
         }
         
-		stage('Login to Docker Hub') {
+	stage('Login to Docker Hub') {
 
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}        
-        
+		steps {
+			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		}
+	}
         
         stage ('Push the Docker image to Docker Hub') {
             steps {
                 //
-                // This requires HTML Publisher plugin
-                sh 'docker push mmdeniz/addressbook:1.0'
+                // 
+                // sh 'docker push mmdeniz/addressbook:1.0'
             }
         }
         stage ('Pull the Docker image from the Docker Hub') {
             steps {
                 //
-                // This requires HTML Publisher plugin
+                // 
                 sh 'echo "Pull"'
             }
         }
