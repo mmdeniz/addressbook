@@ -1,9 +1,9 @@
 pipeline {
     agent any
     
-    environment {
-		DOCKERHUB_CREDENTIALS=credentials('sl-2-pr-2-Jenkins')
-    }
+//    environment {
+//		DOCKERHUB_CREDENTIALS=credentials('sl-2-pr-2-Jenkins')
+//    }
     
     tools {
         //
