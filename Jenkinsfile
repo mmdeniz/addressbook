@@ -54,7 +54,7 @@ pipeline {
             steps {
                 //
                 // 
-                sh 'docker build -t mmdeniz/addressbook:1.0 .'
+                sh "docker build -t mmdeniz/addressbook:${BUILD_NUMBER} ."
             }
         }
         
@@ -70,7 +70,7 @@ pipeline {
                 //
                 // 
 		//    sh 'eche "push"'
-                 sh 'docker push mmdeniz/addressbook:1.0'
+                 sh "docker push mmdeniz/addressbook:${BUILD_NUMBER}"
             }
         }
         stage ('Pull the Docker image from the Docker Hub') {
