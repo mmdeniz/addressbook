@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('sl-2-pr-2-Jenkins')
+    }
+    
     tools {
         //
         // this requires Maven integration plugin
@@ -45,18 +50,27 @@ pipeline {
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site', reportFiles: 'pmd.html', reportName: 'PMD Report', reportTitles: ''])
             }
         }
-        stage ('Create the Docker Image') {
+        stage ('Build the Docker Image') {
             steps {
                 //
                 // This requires HTML Publisher plugin
-                sh 'docker build -t addressbook .'
+                sh 'docker build -t mmdeniz/addressbook:1.0 .'
             }
         }
+        
+		stage('Login to Docker Hub') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}        
+        
+        
         stage ('Push the Docker image to Docker Hub') {
             steps {
                 //
                 // This requires HTML Publisher plugin
-                sh 'echo "Push"'
+                sh 'docker push mmdeniz/addressbook:1.0'
             }
         }
         stage ('Pull the Docker image from the Docker Hub') {
@@ -66,5 +80,11 @@ pipeline {
                 sh 'echo "Pull"'
             }
         }
+
+    	post {
+		always {
+			sh 'docker logout'
+        }
+    
     }
 }
