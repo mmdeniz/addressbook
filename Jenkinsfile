@@ -45,5 +45,26 @@ pipeline {
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site', reportFiles: 'pmd.html', reportName: 'PMD Report', reportTitles: ''])
             }
         }
+        stage ('Create the Docker Image') {
+            steps {
+                //
+                // This requires HTML Publisher plugin
+                sh 'echo "Create"'
+            }
+        }
+        stage ('Push the Docker image to Docker Hub') {
+            steps {
+                //
+                // This requires HTML Publisher plugin
+                sh 'echo "Push"'
+            }
+        }
+        stage ('Pull the Docker image from the Docker Hub') {
+            steps {
+                //
+                // This requires HTML Publisher plugin
+                sh 'echo "Pull"'
+            }
+        }
     }
 }
