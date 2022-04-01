@@ -80,8 +80,6 @@ pipeline {
 	    
         stage ('Pull the Docker image from the Docker Hub') {
             steps {
-                // sh "docker stop AB${$(BUILD_NUMBER)-1}"
-                // sh "docker rm AB${$(BUILD_NUMBER)-1}"  
                 sh "docker run --name AB${BUILD_NUMBER} -d  -p 30${BUILD_NUMBER}:8080 mmdeniz/addressbook:${BUILD_NUMBER}"
             }
         }
