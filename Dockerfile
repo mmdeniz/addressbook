@@ -4,6 +4,10 @@ RUN apt-get update
 
 RUN apt-get upgrade -y
 
-COPY target/addressbook-2.0.war /usr/local/tomcat/webapps/
+RUN mv webapps webapps.old
+
+RUN mv webapps.dist webapps
+
+COPY target/addressbook-2.0.war /usr/local/tomcat/webapps/addressbook.war
 
 CMD ["catalina.sh", "run"]
