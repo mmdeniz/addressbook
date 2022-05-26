@@ -31,7 +31,7 @@ jobs:
       run: pwd
 
     - name: working directory
-      run: cp /home/runner/work/addressbook/addressbook/target/addressbook-2.0.war /tmp/ab
+      run: cp /home/runner/work/addressbook/addressbook/target/addressbook-2.0.war /tmp/ab/addressbook.war
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
