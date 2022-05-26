@@ -8,6 +8,6 @@ RUN mv webapps webapps.old
 
 RUN mv webapps.dist webapps
 
-COPY /tmp/ab/addressbook.war /usr/local/tomcat/webapps/addressbook.war
+COPY /tmp/addressbook.war /usr/local/tomcat/webapps/addressbook.war
 
 CMD ["catalina.sh", "run"]
