@@ -25,13 +25,13 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: list file
-      run: ls -al
+      run: ls target/ -al
       
     - name: working directory
       run: pwd
 
-    - name: working directory
-      run: cp /home/runner/work/addressbook/addressbook/target/addressbook-2.0.war /tmp/addressbook.war
+    #- name: working directory
+    #  run: cp /home/runner/work/addressbook/addressbook/target/addressbook-2.0.war /tmp/addressbook.war
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
