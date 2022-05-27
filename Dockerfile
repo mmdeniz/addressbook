@@ -8,7 +8,7 @@ RUN mv webapps webapps.old
 
 RUN mv webapps.dist webapps
 
-WORKDIR /home/runner/work/addressbook/addressbook/target/
+WORKDIR /home/runner/work/addressbook/addressbook/target
 
 COPY addressbook-2.0.war /usr/local/tomcat/webapps/addressbook.war
 
