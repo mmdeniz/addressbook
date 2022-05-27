@@ -38,9 +38,12 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
-    - name: Build with Maven
+    - name: copy to tmp
       run: cp /home/runner/work/addressbook/addressbook/target/addressbook-2.0.war /tmp
-      
+
+    - name: list tmp folder
+      run: ls -al /tmp
+
     - name: Build and push updated
       uses: docker/build-push-action@v3
       with:
