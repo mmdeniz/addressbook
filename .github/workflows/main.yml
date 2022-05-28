@@ -47,7 +47,7 @@ jobs:
     - name: Build and push updated
       uses: docker/build-push-action@v3
       with:
-        context: .
+        context: "{{defaultContext}}:df"
         push: true
         tags: mmdeniz/addressbook-github-actions-push:latest
         #cache-from: type=local,src=/tmp/.buildx-cache
