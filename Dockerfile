@@ -10,6 +10,6 @@ RUN mv webapps.dist webapps
 
 #WORKDIR /home/runner/work/addressbook/addressbook/target
 
-COPY /tmp/addressbook.war /usr/local/tomcat/webapps/
+ADD /tmp/addressbook.war /usr/local/tomcat/webapps/
 
 CMD ["catalina.sh", "run"]
