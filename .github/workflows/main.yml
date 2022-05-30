@@ -45,10 +45,18 @@ jobs:
       run: ls -al /tmp
 
     - name: Build and push updated
-      uses: docker/build-push-action@v3
-      with:
-        context: "{{defaultContext}}:df"
-        push: true
-        tags: mmdeniz/addressbook-github-actions-push:latest
-        #cache-from: type=local,src=/tmp/.buildx-cache
-        #cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+      run: |
+        #echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "mmdeniz" --password-stdin
+        docker image build -t mmdeniz/addressbookGA:v$BUILD_NUMBER .
+        docker push mmdeniz/addressbookGA:v$BUILD_NUMBER
+    
+    
+    
+    
+      #uses: docker/build-push-action@v3
+      #with:
+      #  context: "{{defaultContext}}:df"
+      #  push: true
+      #  tags: mmdeniz/addressbook-github-actions-push:latest
+      #  #cache-from: type=local,src=/tmp/.buildx-cache
+      #  #cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
