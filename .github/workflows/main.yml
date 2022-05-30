@@ -47,8 +47,8 @@ jobs:
     - name: Build and push updated
       run: |
         #echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "mmdeniz" --password-stdin
-        docker image build -t mmdeniz/addressbookGA:v${{github.run_number}} .
-        docker push mmdeniz/addressbookGA:v${{github.run_number}}
+        docker image build -t mmdeniz/addressbookga:v${{github.run_number}} .
+        docker push mmdeniz/addressbookga:v${{github.run_number}}
     
     
     
