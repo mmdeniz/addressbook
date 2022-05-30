@@ -38,11 +38,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         
-    - name: copy to tmp
-      run: cp /home/runner/work/addressbook/addressbook/target/addressbook-2.0.war /tmp/addressbook.war
+    #- name: copy to tmp
+    #  run: cp /home/runner/work/addressbook/addressbook/target/addressbook-2.0.war /tmp/addressbook.war
 
     - name: list tmp folder
-      run: ls -al /tmp
+      run: ls -al /home/runner/work/addressbook/addressbook/target
 
     - name: Build and push updated
       run: |
